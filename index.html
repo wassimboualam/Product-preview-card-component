@@ -48,6 +48,19 @@
     </aside>
   </main>
 
+  <script>
+    const figure = document.querySelector("figure img");
+
+    function resize() {
+      figure.src = "images/image-product-"+(innerWidth > 560? "desktop": "mobile")+".jpg";
+      const root = document.querySelector(":root");
+      root.style.setProperty("--aside-height", `${getComputedStyle(root).getPropertyValue("--main-height") - figure.height}`);
+    }
+    
+    resize();
+    addEventListener("resize", () => resize());
+  </script>
+
   <div class="attribution">
     Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
     Coded by <a href="https://www.frontendmentor.io/profile/wassimboualam">Wassim Boualam</a>.
